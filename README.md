@@ -68,15 +68,16 @@ By default attachments will be downloaded using their original filename to the f
 You can customise the download filename using a jinja2 template for the argument `--filename-template`.
 
 The following variables are supported:
+* `sender_name`
 * `message_id`
 * `attachment_name`
 * `attachment_idx`
 * `subject`
 * `date`
 
-In the following example, downloads will be placed within the output folder grouped into a folder hierarchy of date, message ID, subject:
+In the following example, downloads will be placed within the output folder grouped into a folder hierarchy of sender name, date, message ID, subject:
 
-    --filename-template="{{date}}/{{ message_id }}/{{ subject }}/{{ attachment_name }}"
+    --filename-template="{{ sender_name }}/{{date}}/{{ message_id }}/{{ subject }}/{{ attachment_name }}"
 
 The datetime of the message can also be formatted in the output filename, for example:
 
